@@ -5,7 +5,7 @@ from shinywidgets import render_plotly
 import pandas as pd
 import plotly.graph_objects as go
 
-df = pd.read_csv('/nvidia_stock_prices.csv')
+df = pd.read_csv('nvidia_stock_prices.csv')
 
 # sidebar
 ui.page_opts(title="Nvidia Stock Prices", fillable=True)
@@ -17,10 +17,6 @@ with ui.sidebar():
     end_date = df['Date'].max()
 
     ui.input_date_range("daterange", "Select dates", start = start_date, end = end_date)
-
-    # checkbox group
-        # choose analysis (bollinger bands, etc)
-    # links to project info
 
 # main dashboard
 with ui.navset_pill(id="tab"):  
