@@ -1,11 +1,11 @@
-
+import pandas as pd
+import plotly.graph_objects as go
+import yfinance as yf
 from shiny import reactive, render, req
 from shiny.express import input, ui
 from shinywidgets import render_plotly
 from faicons import icon_svg
-import pandas as pd
-import plotly.graph_objects as go
-import yfinance as yf
+
 
 # getting icons for value cards
 # From https://icons.getbootstrap.com/icons/piggy-bank/
