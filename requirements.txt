@@ -4,8 +4,6 @@ pandas
 pyarrow
 plotly
 scipy
-shiny
-shinylive
 shinywidgets
 yfinance
 faicons
