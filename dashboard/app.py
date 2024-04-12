@@ -4,8 +4,25 @@ from shiny.express import input, ui
 from shinywidgets import render_plotly
 import pandas as pd
 import plotly.graph_objects as go
+import yfinance as yf
 
-df = pd.read_csv('nvidia_stock_prices.csv')
+# Ticker symbol for Nvidia
+ticker_symbol = "NVDA"
+
+# Start date (5 years ago from today)
+start_date = pd.Timestamp.now() - pd.DateOffset(years=5)
+
+# End date (today)
+end_date = pd.Timestamp.now()
+
+# Fetching stock data from Yahoo Finance
+df = yf.download(ticker_symbol, start=start_date, end=end_date)
+
+# reset index so that date is also a column
+df.reset_index(inplace=True)
+
+# change items in date column to strings
+df['Date'] = df['Date'].astype(str)
 
 # sidebar
 ui.page_opts(title="Nvidia Stock Prices", fillable=True)
